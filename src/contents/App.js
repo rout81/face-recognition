@@ -71,6 +71,7 @@ class App extends Component {
     app.models
       .predict(Clarifai.CELEBRITY_MODEL, this.state.input)
       .then((response) => {
+        console.log({response})
         const concepts = response.outputs[0].data.regions[0].data.concepts[0];
         this.setState({
           celebrityName: concepts.name,
